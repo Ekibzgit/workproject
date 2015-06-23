@@ -7,8 +7,10 @@ if(isset($_POST['username']))
 {
 	//include database connection file
 	include "conn.php";
+	$username=$_POST['username'];
+	$password=$_POST['password'];
 	
-	$sql = "SELECT * FROM events WHERE username ='".$_POST['username']."' AND password ='".$_POST['password']."'";
+	$sql = "SELECT * FROM validation_tb WHERE 'username' ='$username' AND password ='$password'";
 	
 	//execute the query and store the record set in the variable $result
 	$result=mysql_query($sql) or die("couldn't select  ".mysql_error());
